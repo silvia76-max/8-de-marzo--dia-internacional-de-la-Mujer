@@ -1,0 +1,250 @@
+/* styles.css */
+:root {
+    --color-principal: #69007b; /* Color principal (puedes ajustarlo al tono de tu marca) */
+    --color-secundario: #d9b9dd; /* Color secundario */
+    --color-fondo: #d79ed8; /* Color de fondo claro */
+    --color-texto: #9a0280; /* Color principal del texto */
+    --color-texto-secundario: #fefbfb; /* Color de texto secundario (para párrafos) */
+    --color-boton: #a50990; /* Color para los botones (puede ser el mismo que el principal o uno complementario) */
+    --color-boton-hover: #af60ad; /* Color para el hover de los botones */
+    --color-titulo: #b90df2; /* Color para títulos */
+    --color-titulo-secundario: #700054; /* Color para subtítulos o títulos secundarios */
+  }
+  
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header.hero {
+    background-color:var(--color-principal);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header.hero h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #fff;
+}
+
+header.hero p {
+    font-size: 1.2rem;
+    margin: 10px 0 20px;
+    color: #fff;
+}
+
+header.hero button {
+    background-color: var(--color-boton);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header.hero button:hover {
+    background-color:var(--color-boton-hover);
+    color: white;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.carousel {
+    background-color:var(--color-fondo);
+    color: var(--color-titulo-secundario);
+    padding: 20px 0;
+}
+
+.carousel-container {
+    overflow: hidden;
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    max-width: 50%;
+    max-height:20rem;
+    margin: 0 5px;
+    border-radius: 10px;
+}
+/* Estilo para la sección de historias inspiradoras */
+#historias-inspiradoras {
+    background-color: var(--color-fondo);
+    padding: 40px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  #historias-inspiradoras h2 {
+    font-size: 2.5em;
+    color: var(--color-titulo-secundario);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .historia {
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color:#560d5b8a ;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+    transition: transform 0.3s ease-in-out;
+    height: 550px; /* Establecer una altura fija para todas las tarjetas */
+    box-sizing: border-box; /* Asegura que el padding no se sume al tamaño total de la tarjeta */
+  
+  }
+  
+  .historia:hover {
+    transform: scale(1.05);
+  }
+  
+  .historia img {
+    width: 100%;
+    height: 200px; /* Ajusta la altura de las imágenes para que tengan el mismo tamaño */
+    object-fit: cover; /* Hace que las imágenes se recorten si es necesario para mantener su aspecto */
+    border-radius: 10px;
+  }
+
+  
+  .historia h3 {
+    font-size: 1.5em;
+    color:white;
+    margin-top: 15px;
+  }
+  
+  .historia p {
+    font-size: 1em;
+    color: white;
+    line-height: 1.5;
+    overflow: hidden; /* Esto ayuda a evitar que el texto se desborde fuera de la tarjeta */
+    height: 120px; /* Limita la altura del párrafo para que el texto no ocupe más espacio del permitido */
+  }
+  
+  .historia p strong {
+    font-weight: bold;
+    color:white;
+  }
+  
+  /* Estilos para la respuesta en móviles */
+  @media (max-width: 768px) {
+    .historia {
+      width: 90%;
+      margin: 10px auto;
+    }
+  
+    #historias-inspiradoras h2 {
+      font-size: 2em;
+    }
+  
+    .historia h3 {
+      font-size: 1.3em;
+    }
+  
+    .historia p {
+      font-size: 0.9em;
+    }
+  }
+
+.contributions {
+    background-color: var(--color-fondo);
+}
+ .contributions h2,h3 {
+    color: var(--color-titulo-secundario);
+ }
+.contributions textarea {
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--color-boton);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contributions button {
+    background-color: var(--color-boton);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contributions button:hover {
+    background-color: var(--color-boton-hover);
+}
+
+.gallery {
+    margin-top: 20px;
+}
+
+.gallery ul {
+    list-style: none;
+    padding: 0;
+}
+
+.gallery ul li {
+    background-color: #fff;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 5px;
+    width: 60%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.map {
+    background-color: var(--color-fondo);
+}
+.map h2 {
+    color: var(--color-titulo-secundario);
+}
+#worldMap {
+    width: 100%;
+    height: 300px;
+    background-color: #ccc;
+    margin: 20px auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--color-titulo-secundario);
+}
+
+.playlist {
+    background-color:var(--color-fondo);
+}
+.playlist h2, p {
+    color: var(--color-titulo-secundario);
+}
+
+footer {
+    background-color:var(--color-principal);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+}
+footer p{
+    color:#fff
+}
