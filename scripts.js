@@ -3,7 +3,36 @@ function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     section.scrollIntoView({ behavior: 'smooth' });
 }
+const globalTranslations = {
+    es: {
+      daysOfWeek: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+      monthsOfYear: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    },
+   
+  };
 
+  function updateDateTime() {
+    const dateTimeDisplay = document.getElementById("dateTimeDisplay");
+    const now = new Date();
+  
+    const currentLanguage = localStorage.getItem("language") || "es";
+    const { daysOfWeek, monthsOfYear } = globalTranslations[currentLanguage];
+  
+    const day = daysOfWeek[now.getDay()];
+    const date = now.getDate();
+    const month = monthsOfYear[now.getMonth()];
+    const year = now.getFullYear();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+  
+    dateTimeDisplay.textContent = `${day}, ${hours}:${minutes} - ${date} ${month} ${year}`;
+  }
+
+  window.onload = function() {
+    updateDateTime();
+    setInterval(updateDateTime, 60000); // Actualiza cada minuto
+  };
+  
 // Funcionalidad del carrusel
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-images img');
@@ -30,6 +59,57 @@ function addContribution() {
         alert('Por favor, escribe una frase antes de enviar.');
     }
 }
+
+// frases motivadoras
+
+const canvas = document.getElementById("chalkboard");
+const ctx = canvas.getContext("2d");
+
+// Configuración de la pizarra
+ctx.font = "20px Comic Sans MS";
+ctx.fillStyle = "white";
+ctx.textAlign = "center";
+
+const MAX_FRASES = 20; // Límite de frases en la pizarra
+let frases = JSON.parse(localStorage.getItem("frases")) || [];
+
+// Función para dibujar en la pizarra
+function drawBoard() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia la pizarra
+    let yOffset = 30;
+
+    frases.forEach((frase, index) => {
+        ctx.fillText(frase, canvas.width / 2, yOffset + index * 30);
+    });
+}
+
+// Agregar una nueva frase
+function addContribution() {
+    const input = document.getElementById("userPhrase");
+    const phrase = input.value.trim();
+
+    if (phrase !== "") {
+        if (frases.length >= MAX_FRASES) {
+            frases.shift(); // Eliminar la más antigua
+        }
+
+        frases.push(phrase);
+        localStorage.setItem("frases", JSON.stringify(frases)); // Guardar en localStorage
+        drawBoard(); // Redibujar la pizarra
+        input.value = ""; // Limpiar el campo de entrada
+    }
+}
+
+// Botón para limpiar la pizarra
+function clearBoard() {
+    frases = [];
+    localStorage.removeItem("frases");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// Cargar frases guardadas al iniciar
+drawBoard();
+
 
 // Inicializar el mapa
 const map = L.map('worldMap').setView([20, 0], 2); // Coordenadas iniciales (lat, lng) y nivel de zoom

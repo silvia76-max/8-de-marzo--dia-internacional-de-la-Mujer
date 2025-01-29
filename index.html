@@ -14,7 +14,10 @@
         <p>El cambio comienza con nosotras</p>
         <button onclick="scrollToSection('contributions')">¡Participa!</button>
     </header>
-
+    <main class="contenedor">
+      <div id="dateTimeDisplay" class="date-container">Cargando...</div>
+    </main>
+      
     <section class="carousel">
         <h2>8 de Marzo 2025 dia internacional de la Mujer</h2>
         <div class="carousel-container">
@@ -105,30 +108,50 @@
           </section>
           
 
+    
+
     <section id="contributions" class="contributions">
-        <h2>Escribe tu Frase Motivadora</h2>
-        <textarea id="userPhrase" placeholder="Escribe aquí..."></textarea>
-        <button onclick="addContribution()">Enviar</button>
-        <div class="gallery">
-            <h3>Contribuciones de la Comunidad</h3>
-            <ul id="galleryList"></ul>
-        </div>
-    </section>
+      <h2>Escribe tu Frase Motivadora</h2>
+      <textarea id="userPhrase" placeholder="Escribe aquí..."></textarea>
+      <button onclick="addContribution()">Enviar</button>
+      <canvas id="chalkboard"></canvas>
+      <button onclick="clearBoard()">Borrar Pizarra</button>
+  </section>
 
     <section class="map">
         <h2>Hitos de Mujeres en el Mundo</h2>
         <div id="worldMap" style="height: 400px;"></div>
     </section>
-
-    <section class="playlist">
-        <h2>Playlist Inspiradora</h2>
-        <audio controls>
-            <source src="song1.mp3" type="audio/mpeg">
-            Tu navegador no soporta audio HTML.
-        </audio>
-        <p>Escucha nuestra selección de canciones para inspirarte.</p>
+    <section class="gallery">
+      <div class="button-container">
+      <h2>Galería de Iniciativas Globales</h2>
+      <div class="gallery-container">
+        <div class="image">
+          <img src="img/heforshe.jpg" alt="HeForShe">
+          <p>HeForShe: Un movimiento global de igualdad.</p>
+          <a href="https://www.heforshe.org/" target="_blank">
+            <button class="action-button">Unirse a HeForShe</button>
+          </a>
+        </div>
+        <div class="image">
+          <img src="img/meetoo1.jpg" alt="#MeToo">
+          <p>#MeToo: Empoderar a las mujeres.</p>
+          <a href="https://metoomvmt.org/" target="_blank">
+            <button class="action-button">Conocer más sobre #MeToo</button>
+          </a>
+        
+        </div>
+        <div class="image">
+          <img src="img/onumujeres.jpg" alt="ONU Mujeres">
+          <p>ONU Mujeres: Por los derechos de las mujeres.</p>
+          <a href="https://www.unwomen.org/es" target="_blank">
+            <button class="action-button">Explorar ONU Mujeres</button>
+          </a>
+        </div>
+      </div>
+      </div>
     </section>
-
+ 
     <footer>
         <p>&copy; 2025 Unidas. Todos los derechos reservados.</p>
     </footer>

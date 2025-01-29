@@ -57,7 +57,13 @@ section {
     padding: 40px 20px;
     text-align: center;
 }
-
+.contenedor {
+  max-width: 100%;
+  margin: 0 auto;
+  color: var(--color-boton);
+  margin-top: 3rem;
+  font-size: 1.5rem;
+}
 .carousel {
     background-color:var(--color-fondo);
     color: var(--color-titulo-secundario);
@@ -194,6 +200,41 @@ section {
 .contributions button:hover {
     background-color: var(--color-boton-hover);
 }
+#chalkboard {
+  background-color: #2c2c2c; /* Fondo tipo pizarra */
+  border: 5px solid #444;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  display: block;
+  margin: 20px auto;
+  width: 1400px;
+  height: 800px;
+  max-width: 100%; /* Para que no sobrepase el ancho del contenedor */
+}
+
+/* Ajuste en pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+  #chalkboard {
+      width: 90%;
+      height: 600px;
+  }
+}
+
+/* Ajuste en móviles */
+@media (max-width: 768px) {
+  #chalkboard {
+      width: 95%;
+      height: 400px;
+  }
+}
+
+/* Ajuste en móviles muy pequeños */
+@media (max-width: 480px) {
+  #chalkboard {
+      width: 100%;
+      height: 300px;
+  }
+}
+
 
 .gallery {
     margin-top: 20px;
@@ -231,13 +272,51 @@ section {
     font-size: 1.2rem;
     color: var(--color-titulo-secundario);
 }
+.gallery{
+  background-color: #d79ed8;
+}
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  background-color: #d79ed8;
+}
+.gallery h2 {
 
-.playlist {
-    background-color:var(--color-fondo);
+  color: #700054;
 }
-.playlist h2, p {
-    color: var(--color-titulo-secundario);
+.image img {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
+
+.image img:hover {
+  transform: scale(1.1);
+}
+.action-button {
+  background-color: var(--color-titulo);
+  color: white;
+  padding: 15px 30px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: var(--color-titulo-secundario);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 
 footer {
     background-color:var(--color-principal);
